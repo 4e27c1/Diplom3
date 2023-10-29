@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class RegisterPage {
     final WebDriver driver;
     private final By registerLink = By.xpath(".//a[text()='Зарегистрироваться']");
-    private final By namelInput = By.xpath(".//label[text()='Имя']");
-    private final By emailInput = By.xpath(".//label[text()='Email']");
-    private final By pwdInput = By.xpath(".//label[text()='Пароль']");
+    private final By nameInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input");
+    private final By emailInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input");
+    private final By pwdInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[3]/div/div/input");
     private final By regButton = By.xpath(".//button[text()='Зарегистрироваться']");
     private final By incorrectPassword = By.xpath("//p[text()='Некорректный пароль']");
 
@@ -17,7 +17,7 @@ public class RegisterPage {
     }
     //открываем страницу регистрации
     public RegisterPage open() {
-        driver.get(Environment.ACCOUNT_URL);
+        driver.get(Environment.REGISTER_URL);
         return this;
     }
 
@@ -29,8 +29,8 @@ public class RegisterPage {
 
     //клик на инпут имени и его заполнение
     public RegisterPage namelInput(String name){
-        driver.findElement(namelInput).click();
-        driver.findElement(namelInput).sendKeys(name);
+        driver.findElement(nameInput).click();
+        driver.findElement(nameInput).sendKeys(name);
         return this;
     }
     //клик на инпут емайла и его заполнение
@@ -55,5 +55,9 @@ public class RegisterPage {
         emailInput(email);
         pwdInput(password);
         regClick();
+    }
+
+    public String incorrectPasswordTextAppear(){
+        return driver.findElement(incorrectPassword).getText();
     }
 }

@@ -23,10 +23,10 @@ public class DriverRule extends ExternalResource{
     }
     private void setUpChrome() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
-        ChromeDriverService service = new ChromeDriverService.Builder()
+        ChromeDriverService options = new ChromeDriverService.Builder()
                 .usingDriverExecutable(new File("C:\\Users\\avakchurin\\Desktop\\Diplom3\\chromedriver.exe"))
                 .build();
-        driver = new ChromeDriver(service);
+        driver = new ChromeDriver(options);
     }
     public void setUpYandex() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");

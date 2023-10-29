@@ -3,14 +3,14 @@ package praktikum.user;
 public class User {
     private String email;
     private String password;
-    private String name;
+    private static String name;
     public  User(String email, String password, String name){
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    public String getEmail() {
+    public  String getEmail() {
         return email;
     }
 
@@ -18,7 +18,7 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
+    public  String getPassword() {
         return password;
     }
 
@@ -26,7 +26,7 @@ public class User {
         this.password = password;
     }
 
-    public String getName() {
+    public  String getName() {
         return name;
     }
 
