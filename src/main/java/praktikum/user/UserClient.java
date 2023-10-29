@@ -17,7 +17,7 @@ public class UserClient extends RequestSpec {
                 .then().log().all();
     }
 
-    public ValidatableResponse delete(String accessToken) {
+     public static ValidatableResponse delete(String accessToken) {
         return requestSpec()
                 .headers(Map.of("Authorization", accessToken))
                 .when()

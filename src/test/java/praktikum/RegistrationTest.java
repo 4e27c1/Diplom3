@@ -1,15 +1,18 @@
 package praktikum;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import praktikum.pages.LoginPage;
 import praktikum.pages.RegisterPage;
 import praktikum.user.User;
+
 import praktikum.user.UserGenerator;
 
-public class RegistrationSuccess {
+public class RegistrationTest {
 private User user;
 private User userShortPwd;
     @Rule
@@ -19,10 +22,10 @@ private User userShortPwd;
     public void setUp() {
         user  = UserGenerator.random();
         userShortPwd = UserGenerator.generic();
-        System.out.println(userShortPwd.getPassword());
-            }
+    }
 
     @Test
+    @DisplayName("Проверяем регистрацию с правильными параметрами")
     public void RegistrationSuccessful(){
         RegisterPage regPage = new RegisterPage(driverRule.getDriver());
         regPage.open()
@@ -33,11 +36,11 @@ private User userShortPwd;
     }
 
     @Test
+    @DisplayName("Проверяем регистрацию с коротким паролем")
     public void RegistrationWithShortPwd()  {
         RegisterPage regPage = new RegisterPage(driverRule.getDriver());
         regPage.open()
                 .fillRegisterForm(userShortPwd.getName(), userShortPwd.getEmail(), userShortPwd.getPassword());
         MatcherAssert.assertThat(regPage.incorrectPasswordTextAppear(), true);
-
     }
 }
