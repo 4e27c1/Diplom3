@@ -20,10 +20,10 @@ public class LoginPage {
         return driver.findElement(LOGIN_BUTTON).getText();
     }
 
-    public Boolean loginButton1(){
-        return driver.findElement(LOGIN_BUTTON).isDisplayed();
+    public LoginPage open(){
+        driver.get(Environment.LOGIN_URL);
+        return this;
     }
-
     public LoginPage emailInput(String email){
         driver.findElement(EMAIL_INPUT).click();
         driver.findElement(EMAIL_INPUT).sendKeys(email);
