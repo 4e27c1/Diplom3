@@ -9,10 +9,13 @@ import praktikum.user.User;
 import praktikum.user.UserClient;
 import praktikum.user.UserGenerator;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+
 public class LKTest {
 
     public User user;
-    //private String accessToken = new String();
+    public String accessToken = new String();
     @Rule
     public DriverRule driverRule = new DriverRule();
 
@@ -41,7 +44,7 @@ public class LKTest {
         Assert.assertEquals("URL doesn't match", Environment.ACCOUNT_URL, actualURL);
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
+        accessToken = localStorage.getItem("accessToken");
         System.out.println(accessToken);
     }
 
@@ -55,12 +58,46 @@ public class LKTest {
         lkPage.constructorClick();
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
+        accessToken = localStorage.getItem("accessToken");
         System.out.println(accessToken);
 
         String actualURL = driverRule.driver.getCurrentUrl();
         Assert.assertEquals("URL doesn't match", Environment.BASE_URL, actualURL);
+    }
 
+    @Test
+    @DisplayName("Клик по логотипу из личного кабинета")
+    public void LogoClick(){
+        MainPage mainPage = new MainPage(driverRule.getDriver());
+        mainPage.lkClick();
+
+        LKPage lkPage = new LKPage(driverRule.getDriver());
+        lkPage.logoClick();
+
+        LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
+        accessToken = localStorage.getItem("accessToken");
+        System.out.println(accessToken);
+
+        String actualURL = driverRule.driver.getCurrentUrl();
+        Assert.assertEquals("URL doesn't match", Environment.BASE_URL, actualURL);
+    }
+
+    @Test
+    @DisplayName("Клик на логаут из личного кабинета")
+    public void LogoutClick(){
+        MainPage mainPage = new MainPage(driverRule.getDriver());
+        mainPage.lkClick();
+
+        LKPage lkPage = new LKPage(driverRule.getDriver());
+        lkPage.logoutClick();
+
+        LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
+        accessToken = localStorage.getItem("accessToken");
+        System.out.println(accessToken);
+
+        LoginPage loginPage = new LoginPage(driverRule.getDriver());
+        String text = loginPage.findLogButton();
+        assertThat("There was no transition to the login page",text, containsString("Войти"));
     }
     @After
     public void deleteUser() {

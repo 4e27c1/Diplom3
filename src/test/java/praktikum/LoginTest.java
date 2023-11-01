@@ -21,7 +21,7 @@ import praktikum.user.UserGenerator;
 
 public class LoginTest {
     private User user;
-    private String accessToken = new String();
+    public String accessToken = new String();
     @Rule
     public DriverRule driverRule = new DriverRule();
 
@@ -47,8 +47,7 @@ public class LoginTest {
         MatcherAssert.assertThat(loginPage.findOrderButton(), true);   // смотрим, что появилась кнопка "Оформить заказ", то есть авторизованная зона
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
+        accessToken = localStorage.getItem("accessToken");
     }
 
     @Test
@@ -64,8 +63,7 @@ public class LoginTest {
         MatcherAssert.assertThat(loginPage.findOrderButton(), true);   // смотрим, что появилась кнопка "Оформить заказ", то есть авторизованная зона
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
+        accessToken = localStorage.getItem("accessToken");
     }
 
     @Test
@@ -81,8 +79,7 @@ public class LoginTest {
         MatcherAssert.assertThat(loginPage.findOrderButton(), true);   // смотрим, что появилась кнопка "Оформить заказ", то есть авторизованная зона
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
+        accessToken = localStorage.getItem("accessToken");
     }
 
     @Test
@@ -98,9 +95,7 @@ public class LoginTest {
         MatcherAssert.assertThat(loginPage.findOrderButton(), true);   // смотрим, что появилась кнопка "Оформить заказ", то есть авторизованная зона
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
-        String accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
-
+        accessToken = localStorage.getItem("accessToken");
     }
 
     @After

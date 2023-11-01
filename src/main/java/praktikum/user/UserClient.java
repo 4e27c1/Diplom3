@@ -22,7 +22,7 @@ public class UserClient extends RequestSpec {
                 .headers(Map.of("Authorization", accessToken))
                 .when()
                 .delete(Environment.USER_DELETE)
-                .then().log().all();
+                .then().log().body();
     }
 
 
