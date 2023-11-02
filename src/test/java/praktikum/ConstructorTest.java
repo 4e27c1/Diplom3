@@ -1,9 +1,9 @@
 package praktikum;
 
+import io.qameta.allure.junit4.DisplayName;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import praktikum.pages.MainPage;
 
 public class ConstructorTest {
@@ -17,7 +17,7 @@ public class ConstructorTest {
         mainPage.open()
                 .waitWithDefaultTimeout()
                 .sauceClick();
-        Assertions.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstSauseLocator()));
+        Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstSauseLocator()));
     }
 
     @Test
@@ -25,11 +25,11 @@ public class ConstructorTest {
     public void BunDisplayedTest() {
         MainPage mainPage = new MainPage(driverRule.getDriver());
         mainPage.open()
-                .waitWithDefaultTimeout()
+               .waitWithDefaultTimeout()
                 .sauceClick()
                 .waitWithDefaultTimeout()
                 .bunClick();
-        Assertions.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstBunLocator()));
+        Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstBunLocator()));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class ConstructorTest {
         mainPage.open()
                 .waitWithDefaultTimeout()
                 .fillingClick();
-        Assertions.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstFillingLocator()));
+        Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstFillingLocator()));
     }
 }
