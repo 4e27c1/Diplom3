@@ -34,6 +34,7 @@ public class ConstructorTest {
         mainPage.open()
                 .waitWithDefaultTimeout()
                 .sauceClick()
+                .waitWithDefaultTimeout()
                 .bunClick();
         Assertions.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstBunLocator()));
     }

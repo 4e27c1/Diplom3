@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import praktikum.pages.Environment;
 
 import java.io.File;
 import java.time.Duration;
@@ -24,18 +25,18 @@ public class DriverRule extends ExternalResource{
     private void setUpChrome() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         ChromeDriverService options = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("C:\\Users\\avakchurin\\Desktop\\Diplom3\\chromedriver.exe"))
+                .usingDriverExecutable(new File(Environment.CHROME_DRIVER))
                 .build();
         driver = new ChromeDriver(options);
     }
     public void setUpYandex() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         ChromeDriverService service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("C:\\Users\\avakchurin\\Desktop\\Diplom3\\chromedriver.exe"))
+                .usingDriverExecutable(new File(Environment.YANDEX_DRIVER))
                 .build();
 
         ChromeOptions options = new ChromeOptions()
-                .setBinary("C:\\Users\\avakchurin\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe");
+                .setBinary(Environment.YANDEX_BINARY);
 
         driver = new ChromeDriver(service, options);
     }
