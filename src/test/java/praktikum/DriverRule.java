@@ -12,9 +12,10 @@ import java.time.Duration;
 
 public class DriverRule extends ExternalResource{
     WebDriver driver;
+
     @Override
 
-    protected void before() throws Throwable {
+    protected void before()  {
 
         if ("yandex".equals(System.getProperty("browser")))
             setUpYandex();

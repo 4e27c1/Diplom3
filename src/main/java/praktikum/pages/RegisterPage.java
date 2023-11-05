@@ -5,12 +5,12 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterPage {
     final WebDriver driver;
-    private final By nameInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input");
-    private final By emailInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input");
-    private final By pwdInput = By.xpath("//*[@id=\"root\"]/div/main/div/form/fieldset[3]/div/div/input");
+    private final By nameInput = By.xpath("//fieldset[1]/div/div/input");
+    private final By emailInput = By.xpath("//fieldset[2]/div/div/input");
+    private final By pwdInput = By.xpath("//input[@type=\"password\"]");
     private final By regButton = By.xpath(".//button[text()='Зарегистрироваться']");
     private final By incorrectPassword = By.xpath("//p[text()='Некорректный пароль']");
-    private final By loginLink = By.xpath("//*[@id=\"root\"]/div/main/div/div/p/a");
+    private final By loginLink = By.xpath("//a[text()='Войти']");
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;

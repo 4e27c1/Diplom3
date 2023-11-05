@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class UserClient extends RequestSpec {
 
-    public ValidatableResponse create(User user) {
+    public static ValidatableResponse create(User user) {
         return requestSpec()
                 .body(user)
                 .when()

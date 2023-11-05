@@ -11,7 +11,7 @@ public class LKPage {
         this.driver = driver;
     }
 
-    public static final By PROFILE = By.xpath("//*[@id=\"root\"]/div/main/div/nav/ul/li[1]/a");
+    public static final By PROFILE = By.xpath("//a[text() = 'Профиль']");
     public static final By CONSTRUCTOR = By.xpath("//p[text()='Конструктор']");
     public static final By LOGO = By.xpath("//div[@class='AppHeader_header__logo__2D0X2']");
     public static final By LOGOUT_LINK = By.xpath(".//button[text()='Выход']");

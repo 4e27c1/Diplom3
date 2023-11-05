@@ -28,10 +28,8 @@ public class LoginTest {
     @Before
     public void setUp() {
         user = UserGenerator.random();
+        UserClient.create(user);
 
-        RegisterPage regPage = new RegisterPage(driverRule.getDriver()); //сначала регистрируемся
-        regPage.open()
-                .fillRegisterForm(user.getName(), user.getEmail(), user.getPassword());
     }
 
     @Test

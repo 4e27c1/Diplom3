@@ -11,7 +11,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver){
         this.driver = driver;
     }
-    public static final By LOGIN_BUTTON = By.xpath("//*[@id=\"root\"]/div/main/div/form/button");
+    public static final By LOGIN_BUTTON = By.xpath("//button[text()='Войти']");
     public static final By EMAIL_INPUT = By.xpath(".//input[@name='name']");
     public static final By PASSWORD_INPUT = By.xpath(".//input[@name='Пароль']");
     public static final  By MAKE_ORDER_BUTTON = By.xpath(".//button[text()='Оформить заказ']");

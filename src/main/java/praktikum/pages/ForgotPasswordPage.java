@@ -10,7 +10,7 @@ public class ForgotPasswordPage {
         this.driver = driver;
     }
 
-    public static final By LOGIN_BUTTON = By.xpath("//*[@id=\"root\"]/div/main/div/div/p/a");
+    public static final By LOGIN_BUTTON = By.xpath("//a[text()='Войти']");
 
     public ForgotPasswordPage open(){
         driver.get(Environment.FORGOT_PASSWORD);

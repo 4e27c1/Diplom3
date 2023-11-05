@@ -23,9 +23,7 @@ public class LKTest {
     public void setUp() {
         user = UserGenerator.random();
 
-        RegisterPage regPage = new RegisterPage(driverRule.getDriver()); //сначала регистрируемся
-        regPage.open()
-                .fillRegisterForm(user.getName(), user.getEmail(), user.getPassword());
+        UserClient.create(user);
 
         LoginPage loginPage = new LoginPage(driverRule.getDriver());
         loginPage.open()
@@ -45,7 +43,6 @@ public class LKTest {
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
         accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
     }
 
     @Test
@@ -59,7 +56,6 @@ public class LKTest {
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
         accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
 
         String actualURL = driverRule.driver.getCurrentUrl();
         Assert.assertEquals("URL doesn't match", Environment.BASE_URL, actualURL);
@@ -76,7 +72,6 @@ public class LKTest {
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
         accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
 
         String actualURL = driverRule.driver.getCurrentUrl();
         Assert.assertEquals("URL doesn't match", Environment.BASE_URL, actualURL);
@@ -93,7 +88,6 @@ public class LKTest {
 
         LocalStorage localStorage = ((WebStorage) driverRule.driver).getLocalStorage();
         accessToken = localStorage.getItem("accessToken");
-        System.out.println(accessToken);
 
         LoginPage loginPage = new LoginPage(driverRule.getDriver());
         String text = loginPage.findLogButton();

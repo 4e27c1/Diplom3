@@ -4,7 +4,12 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import praktikum.pages.MainPage;
+
+import java.time.Duration;
 
 public class ConstructorTest {
     @Rule
@@ -16,19 +21,21 @@ public class ConstructorTest {
         MainPage mainPage = new MainPage(driverRule.getDriver());
         mainPage.open()
                 .waitWithDefaultTimeout()
-                .sauceClick();
+                .sauceClick()
+                .getActiveSauceTab();
         Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstSauseLocator()));
     }
 
     @Test
-    @DisplayName("Отображение соуса в конструкторе после клика")
+    @DisplayName("Отображение булки в конструкторе после клика")
     public void BunDisplayedTest() {
         MainPage mainPage = new MainPage(driverRule.getDriver());
         mainPage.open()
                .waitWithDefaultTimeout()
                 .sauceClick()
                 .waitWithDefaultTimeout()
-                .bunClick();
+                .bunClick()
+                .getActiveBunTab();
         Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstBunLocator()));
     }
 
@@ -38,7 +45,8 @@ public class ConstructorTest {
         MainPage mainPage = new MainPage(driverRule.getDriver());
         mainPage.open()
                 .waitWithDefaultTimeout()
-                .fillingClick();
+                .fillingClick()
+                .getActiveFillingTab();
         Assert.assertTrue(mainPage.checkScrollingToFirstPositions(mainPage.getFirstFillingLocator()));
     }
 }
